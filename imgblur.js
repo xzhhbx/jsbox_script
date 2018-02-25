@@ -20,7 +20,7 @@ $app.strings = {
         "extralight": "极亮",
         "light": "明亮",
         "dark": "黑暗",
-        "savetips": "点击保存图片",
+        "savetips": "点击图片即可保存！",
         "author": "作者：Fndroid",
         "savedone": "图片保存成功！",
         "savefail": "图片保存失败！"
