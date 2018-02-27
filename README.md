@@ -5,3 +5,6 @@
 
 ### 2. 图片模糊
 [进入论坛下载](https://jsboxbbs.com/d/99--)
+
+### 3. 双拼练习
+[进入论坛下载](https://jsboxbbs.com/d/108--)
