@@ -8,3 +8,6 @@
 
 ### 3. 双拼练习
 [进入论坛下载](https://jsboxbbs.com/d/108--)
+
+### 4. SS(R)订阅脚本
+[进入论坛下载](https://jsboxbbs.com/d/110-ss-r)
