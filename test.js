@@ -1,1 +1,1 @@
-$ui.toast("hello jsbox")
+$ui.toast("hello world")
