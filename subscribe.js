@@ -51,7 +51,7 @@ function refreshUI() {
                     props: {
                         height: 50,
                         text: "添加订阅",
-                        align:$align.center,
+                        align: $align.center,
                         textColor: $color("#3333ee"),
                         font: $font(20)
                     },
@@ -63,6 +63,7 @@ function refreshUI() {
                                     $input.text({
                                         type: $kbType.url,
                                         placeholder: "订阅地址",
+                                        text: $clipboard.text,
                                         handler: url => {
                                             let new_data = data
                                             new_data.urls.push({
@@ -127,7 +128,7 @@ function refreshUI() {
                             let links = []
                             for (i in ssrs) {
                                 $console.info(ssrs[i])
-                                if (ssrs[i].startsWith("ssr://")){
+                                if (ssrs[i].startsWith("ssr://")) {
                                     let content = ssrs[i].replace(/ssr:\/\//, "")
                                     let content_decode = decode(content)
                                     let remark = content_decode.match(/remarks=(.*?)&/)
@@ -135,7 +136,7 @@ function refreshUI() {
                                         title: decode(remark[1]),
                                         url: ssrs[i]
                                     })
-                                }else if(ssrs[i].startsWith("ss://")){
+                                } else if (ssrs[i].startsWith("ss://")) {
                                     let tag = ssrs[i].match(/#(.*?)$/)[1]
                                     links.push({
                                         title: $text.URLDecode(tag),
@@ -143,34 +144,46 @@ function refreshUI() {
                                     })
                                 }
                             }
-                            if (links.length == 0){
+                            if (links.length == 0) {
                                 $ui.error("没有检测到SS(R)链接")
                             }
+                            let top_menu = links.map(item => item.title)
+                            let top_menu_length = top_menu.push("复制所有链接")
                             $ui.menu({
-                                items: links.map(item => item.title),
-                                handler: function(title1, idx1) {
-                                    $ui.menu({
-                                        items: ["打开SS(R)链接", "复制SS(R)链接", "保存二维码"],
-                                        handler: function(title2, idx2) {
-                                            if (idx2 == 1){
-                                                $clipboard.text = links[idx1].url
-                                                $ui.toast("链接已经复制到剪贴板")
-                                            }else if(idx2 == 2){
-                                                $photo.save({
-                                                    image: $qrcode.encode(links[idx1].url),
-                                                    handler: function(success) {
-                                                        if (success){
-                                                            $ui.toast("二维码保存成功")
-                                                        }else{
-                                                            $ui.error("二维码保存失败")
-                                                        }
-                                                    }
-                                                })
-                                            }else if(idx2 == 0){
-                                                $app.openURL(links[idx1].url)
-                                            }
+                                items: top_menu,
+                                handler: function (title1, idx1) {
+                                    if (idx1 == top_menu_length - 1) {
+                                        let res = ""
+                                        for (var i = 0; i < top_menu_length - 1; i++) {
+                                            res += `${links[i].url}\n`
                                         }
-                                    })
+                                        $console.info(res)
+                                        $clipboard.text = res
+                                    } else {
+                                        $ui.menu({
+                                            items: ["打开SS(R)链接", "复制SS(R)链接", "保存二维码"],
+                                            handler: function (title2, idx2) {
+                                                if (idx2 == 1) {
+                                                    $clipboard.text = links[idx1].url
+                                                    $ui.toast("链接已经复制到剪贴板")
+                                                } else if (idx2 == 2) {
+                                                    $photo.save({
+                                                        image: $qrcode.encode(links[idx1].url),
+                                                        handler: function (success) {
+                                                            if (success) {
+                                                                $ui.toast("二维码保存成功")
+                                                            } else {
+                                                                $ui.error("二维码保存失败")
+                                                            }
+                                                        }
+                                                    })
+                                                } else if (idx2 == 0) {
+                                                    $app.openURL(links[idx1].url)
+                                                }
+                                            }
+                                        })
+                                    }
+
                                 }
                             })
                         }
