@@ -1,4 +1,4 @@
-# 我的JSBox/Workflow脚本集合
+# 我的JSBox脚本集合
 
 #### 1. [学期日历](https://jsboxbbs.com/d/86--)
 
