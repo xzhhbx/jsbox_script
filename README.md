@@ -14,6 +14,8 @@
 
 #### 7. [文字下划线](https://jsboxbbs.com/d/167--)
 
+#### 8. [Picsew工具](https://jsboxbbs.com/d/177-picsew)
+
 *欢迎打赏,感谢老板!*
 
 ![感谢支持](https://raw.githubusercontent.com/Fndroid/jsbox_script/master/imgs/thankyou.jpg)
