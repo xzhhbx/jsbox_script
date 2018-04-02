@@ -16,6 +16,8 @@
 
 #### 8. [Picsew工具](https://jsboxbbs.com/d/177-picsew)
 
+#### 9. [SS转Surge](https://jsboxbbs.com/d/193-ss-surge-proxy)
+
 *欢迎打赏,感谢老板!*
 
 ![感谢支持](https://raw.githubusercontent.com/Fndroid/jsbox_script/master/imgs/thankyou.jpg)
