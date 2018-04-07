@@ -18,6 +18,8 @@
 
 #### 9. [SS转Surge](https://jsboxbbs.com/d/193-ss-surge-proxy)
 
+#### 10. [Surge3配置生成](https://jsboxbbs.com/d/214-surge3)
+
 *欢迎打赏,感谢老板!*
 
 ![感谢支持](https://raw.githubusercontent.com/Fndroid/jsbox_script/master/imgs/thankyou.jpg)
