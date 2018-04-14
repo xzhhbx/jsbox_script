@@ -1,3 +1,5 @@
+"use strict"
+
 function decodeScheme(url) {
     let method, password, hostname, port, plugin, tag
     if (!url.includes('#')) {
@@ -33,20 +35,23 @@ function decodeScheme(url) {
     if (plugin != undefined) {
         proxy += `, ${plugin}`
     }
+    
     return proxy
 }
 
 $ui.menu({
     items: ['剪贴板读取链接', '扫描二维码'],
     handler: function(title, idx) {
-        let result
         if (idx == 0) {
-            result = decodeScheme($clipboard.text)
+            let result = decodeScheme($clipboard.text)
             $ui.alert({
                 title: "转换结果",
                 message: result,
                 actions: [{
-                    title: 'Cancel'
+                    title: 'Cancel',
+                    handler: () => {
+
+                    }
                 }, {
                     title: 'Copy',
                     handler: () => {
@@ -57,12 +62,15 @@ $ui.menu({
         } else {
             $qrcode.scan({
                 handler(string) {
-                    result = decodeScheme(string)
+                    let result = decodeScheme(string)
                     $ui.alert({
                         title: "转换结果",
                         message: result,
                         actions: [{
-                            title: 'Cancel'
+                            title: 'Cancel',
+                            handler: () => {
+                                
+                            }
                         }, {
                             title: 'Copy',
                             handler: () => {
