@@ -1,7 +1,6 @@
 # 我的JSBox脚本集合
 
 #### 1. [学期日历](https://jsboxbbs.com/d/86--)
-![](imgs\shuangpin_pre1.jpg)
 
 #### 2. [图片模糊](https://jsboxbbs.com/d/99--)
 
