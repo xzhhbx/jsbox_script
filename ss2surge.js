@@ -65,16 +65,26 @@ function showResult(result) {
 }
 
 $ui.menu({
-    items: ['剪贴板读取链接', '扫描二维码'],
+    items: ['剪贴板读取链接', '扫描二维码', '相册选取二维码'],
     handler: function(title, idx) {
         if (idx == 0) {
             let result = decodeScheme($clipboard.text)
             showResult(result)
-        } else {
+        } else if (idx == 1) {
             $qrcode.scan({
                 handler(string) {
                     let result = decodeScheme(string)
                     showResult(result)
+                }
+            })
+        }else {
+            $photo.pick({
+                format: "image",
+                handler: function(resp) {
+                    var image = resp.image
+                    let result = decodeScheme($qrcode.decode(image))
+                    showResult(result)
+                    
                 }
             })
         }
